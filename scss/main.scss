@@ -1,0 +1,270 @@
+@use './resets' as *;
+@use './functions' as *;
+@use './mixins' as *; 
+@use './variables' as *;
+
+// Styles
+
+
+body {
+    background: 
+    url('../images/bg-pattern-top-mobile.svg') top left no-repeat,
+    url('../images/bg-pattern-bottom-mobile.svg') bottom right no-repeat;
+
+}
+
+
+.container {
+    @include size(100%, auto);
+    padding: generalPadding($padding20);
+    display: grid;
+    grid-template-columns:1fr;
+}
+
+.content__top {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'cont-ppal'
+    'stars';
+}
+.content__ppal {
+    grid-area: cont-ppal;
+    padding: generalPadding($padding10);    
+    & p:first-child {
+        color: fontColor($primary-color);
+        font-size: fontSize(calc(2vw + 3rem));
+        font-weight: weight(bold);
+        text-align: center;
+    }
+
+    & p:last-child{
+        margin-top: 3rem;
+        color: fontColor($dark-grayish-magenta);
+        font-size: fontSize(calc(2vw + .9rem));
+        font-weight: weight(medium);
+        line-height: 2.5rem;
+        text-align: center;
+    }
+}
+
+
+.reviews {
+    margin-top: 3rem;
+    grid-area: stars;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    & .list__item{
+        @include displayFlex(flex, column, center, center);    
+        background: backgroundColor($light-grayish-magenta);
+        padding: generalPadding($padding15);
+        border-radius: borderRadius(1rem);
+        & p {
+            color: fontColor($primary-color);
+            font-weight: weight(bold);
+            font-size: fontSize(1.7rem);
+            margin-top: .5rem;
+            padding: generalPadding($padding10);
+        }
+    }
+
+}
+
+.star{
+    @include displayFlex(flex, row, space-around, center);
+}
+
+:is(.list__item img){
+    @include size(20px, auto);
+    margin-inline-start: .5rem;
+}
+    
+
+
+.cards{
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: backgroundColor($primary-color);
+    padding: generalPadding($padding20);
+    border-radius: borderRadius(1rem);
+}
+.card__header {
+    display: flex;
+    text-align: start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    padding: 0 generalPadding($padding10);
+    &--text {
+        @include displayFlex(flex, column, center, center);
+        
+    }
+}
+
+.card p {
+    color: fontColor(white);
+    line-height: 2.5rem;
+    font-weight: weight(medium);
+    font-size: fontSize(1.7rem);
+    padding: 0 generalPadding($padding10);
+}
+
+.card__header h2 {
+    color: fontColor(white);
+    font-size: fontSize(1.7rem);
+}
+
+
+.card__header p{
+    color: fontColor($soft-pink);
+}
+
+.avatar__card{
+    width: 5rem;
+    border-radius: borderRadius(100%);
+}
+
+
+footer {
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    font-size: fontSize(2rem);
+}
+
+a {
+    text-decoration: none;
+    color: fontColor(black);
+    &:hover {
+        color: fontColor($primary-color);
+        font-weight: weight(bold);
+    }
+}
+
+//  MEDIA QUERIES
+//-----------------//
+//-----------------//
+
+@media screen and (min-width: 1400px) {
+    
+    body {
+    background: 
+    url('../images/bg-pattern-top-desktop.svg') top left no-repeat,
+    url('../images/bg-pattern-bottom-desktop.svg') bottom right no-repeat;
+
+}
+    .container{
+        margin: 0 auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: 
+        'cont-top cont-top cont-top cont-top cont-top cont-top'
+        'cont-cards cont-cards cont-cards cont-cards cont-cards cont-cards';
+    }
+
+    .cards{
+        grid-area: cont-cards;
+    }
+
+    .content__top {
+
+        grid-area: cont-top;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+        'ppal review'
+        'text review' ;
+    }
+    
+    .content__ppal{
+        justify-self: center;
+        @include size(65%, auto);
+        grid-area: ppal;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: 
+        'title'
+        'text';
+        padding: generalPadding($padding20);    
+    & p:first-child {
+        color: fontColor($primary-color);
+        font-size: fontSize(calc(2vw + 3rem));
+        font-weight: weight(bold);
+        text-align: start;
+    }
+
+    & p:last-child{
+        margin-top: 3rem;
+        color: fontColor($dark-grayish-magenta);
+        font-size: fontSize(calc(1vw + .5rem));
+        font-weight: weight(medium);
+        line-height: 2.5rem;
+        text-align: start;
+    }
+    }
+    
+
+    .reviews {
+        @include size(80%, 50%);
+        grid-area: review;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-content: baseline;
+        gap: 1rem;
+        & .list__item{
+            @include size(70%, 70px);
+            @include displayFlex(flex, row, space-evenly, center);    
+            background: backgroundColor($light-grayish-magenta);
+            padding: generalPadding($padding15);
+            border-radius: borderRadius(1rem);
+        &:first-child{
+            justify-self: self-start;
+        }
+        &:last-child{
+            justify-self: self-end;
+        }
+            & p {
+                color: fontColor($primary-color);
+                font-weight: weight(bold);
+                font-size: fontSize(1.7rem);
+                margin-top: .5rem;
+                padding: generalPadding($padding10);
+            }
+        
+        }
+    }
+ 
+    .cards{
+        margin-top: 0;
+        margin-bottom: 0;
+        @include size(85%, auto);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-self: center;
+        padding: generalPadding($padding20);
+        height: 350px;    
+    }
+
+    .card {
+        padding: generalPadding($padding50);
+        @include size(auto, 280px);
+        &:nth-child(2){
+            align-self: center;
+        }
+        &:last-child{
+            align-self: self-end;
+        }   
+    }
+    
+
+}

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+
+// FUENTES
+$font-family: 'League Spartan', sans-serif;
+$font-weight: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+    );
+$font-size15: 1.5rem;
+$font-size20: 2rem;
+$font-size25: 2.5rem;
+$font-size30: 3rem;
+$font-size35: 3.5rem;
+$font-size40: 4rem;
+$font-size45: 4.5rem;
+$font-size50: 5rem;
+$font-size55: 5.5rem;
+$font-size60: 6rem;
+$font-responsive: clamp(1.6rem, 2vw, 3rem);
+
+
+// COLORS
+$primary-color: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+$dark-grayish-magenta: hsl(303, 10%, 53%);
+$light-grayish-magenta: hsl(300, 24%, 96%);
+$bg-color: hsl(0, 0%, 100%);
+
+
+// ESPACIADOS
+$padding10: 1rem;
+$padding15: 1.5rem;
+$padding20: 2rem;
+$padding25: 2.5rem;
+$padding30: 3rem;
+$padding35: 3.5rem;
+$padding40: 4rem;
+$padding45: 4.5rem;
+$padding50: 5rem;

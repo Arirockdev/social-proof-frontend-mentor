@@ -1,0 +1,26 @@
+@use './variables' as *;
+@use './functions' as *;
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+body{
+    font-size: fontSize($font-size15);
+    font-family: $font-family
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

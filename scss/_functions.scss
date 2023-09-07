@@ -1,0 +1,24 @@
+@use './variables' as *;
+
+@function borderRadius($radius){
+    @return $radius
+};
+
+@function fontColor($color){
+    @return $color
+};
+
+@function fontSize($size){
+    @return $size
+};
+
+@function weight($weight){
+    @return map-get($font-weight, $weight )
+};
+
+@function generalPadding($padding){
+   @return $padding 
+};
+@function backgroundColor($color){
+    @return $color
+};
